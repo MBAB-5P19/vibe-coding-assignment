@@ -7,7 +7,7 @@ Group project for **MBAB 5P19 (Fall 2026)** at Brock University.
 ## Documents
 
 - [Assignment requirements](docs/assignment-instructions.md): our summary of the requirements, the marks breakdown and the five project options.
-- [Plan](docs/plan.md): draft of section 3.i, with the vision, roles, page structure and the feature list grouped into passes.
+- [Plan](docs/plan.md): draft of section 3.i, with the vision, roles, page structure and the feature list grouped into passes, and the technical approach.
 
 ## Submission
 
