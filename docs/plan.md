@@ -143,6 +143,27 @@ Login
 | F6.6 | Help page | A user guide inside the app explains each page. | Core |
 | F6.7 | Accessibility | The app works with the keyboard, has good colour contrast and labels all controls. | Extra |
 
+## Technical approach
+
+The whole app is **one self-contained HTML file**. It uses plain JavaScript, or React loaded from a CDN, with no build step and no server.
+
+| Part | Choice |
+|---|---|
+| Code | One `.html` file. The `.txt` copy for deliverable 4 is the same file, renamed. |
+| Data storage | The browser's `localStorage`. Users can export all data as a JSON file and import it again (F5.7). |
+| Login | Test accounts and roles are written into the app (F1.2, F1.3). There is no real authentication. |
+| Product data | The Open Food Facts API. It needs no API key and allows requests from a local file. The built-in product list is the fallback when there is no internet (F1.5, F2.2). |
+| Barcode scanning | A scanner library loaded from a CDN, for example `html5-qrcode`. Manual entry and scan from photo are fallbacks when the camera is not available (F2.1, F2.4). |
+| Companion site | The same file hosted on Vercel or GitHub Pages. This gives a live HTTPS link, where the camera works best. |
+
+**Why not Next.js with a Supabase database?** We first considered this option, but it does not fit the assignment:
+
+1. **Deliverable 4 needs the code as one `.html` file** that any user can open and use with all functions. A Next.js app has many files and needs a build step and a server.
+2. **Free Supabase projects pause after about a week without activity.** Marking happens some weeks after the deadline, so the marker could see a broken app.
+3. **The app must not depend on an outside service** that can stop, change or need keys. With a single file, only the product lookup needs the internet, and the built-in list covers that.
+
+**Limitations.** Each browser keeps its own data, so data does not move between devices unless the user exports and imports it. The login protects nothing, because all data is on the user's device. These limits are acceptable for a prototype, and we will state them in the user instructions.
+
 ## Open decisions
 
 1. **App name.** "NutriScan" is a placeholder. Check that the final name is not an existing product.
